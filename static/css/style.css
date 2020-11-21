@@ -215,12 +215,11 @@ body{
 .show-results{
 	display: flex;
 }
-.pentagon--design{
 
-}
 .game__results h4{
 	color: white;
 	letter-spacing: 2px;
+	font-size: calc(.8rem + .5vw);
 	justify-content: flex-start;
 	position: absolute;
 	top: 0;
@@ -323,6 +322,39 @@ body{
 }
 .for__mobile{
 	display: none;
+}
+
+@media screen and (min-width: 1439px){
+	.chip{
+		width: 200px;
+		height: 200px;
+	}
+
+	.chip__inner{
+		width: 155px;
+		height: 155px;
+
+	}
+	.img--triangle{
+		height: 300px;
+	}
+	.blankChip{
+		height: 155px;
+		width: 155px;
+
+	}
+	.game__results h4{
+		font-size: calc(1rem + .5vw);
+		top: 10%;
+	}
+	.game__results__winner h2{
+		color: #fff;
+		font-size: calc(2.5rem + .5vw);
+	}
+	.game__results__winner button{
+		padding: 12px 35px;
+	}
+
 }
 
 @media screen and (max-width: 600px){

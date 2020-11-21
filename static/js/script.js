@@ -56,6 +56,8 @@ const playAgain = () => {
 	player_chip.classList.remove(player_picked);
 	game_result.style.opacity = "0";
 	opponent_chip.children[0] && opponent_chip.removeChild(opponent_chip.children[0])
+	player_chip_inner.classList.remove("animate--chip");
+	opponent_chip.children[0]?.classList.remove("animate--chip");
 }
 
 const pickWinner = (p1, p2) => {
