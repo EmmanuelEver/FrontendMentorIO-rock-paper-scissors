@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+<!--   Score
+  Rules
+
+  You Picked
+  The House Picked
+
+  You Win
+  You Lose
+
+  Play Again
+ -->
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main class="app">
+    <!-- scoreboard -->
+    <section class="board">
+      <div class="board__container">
+        <div class="board__container__logo">
+          <img src="./images/logo.svg" alt="">
+        </div>
+        <div class="board__container__score">
+          <p>SCORE</p>
+          <h2 id="game-score">0</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- game board -->
+    <section class="game">
+
+      <!-- round picking chip/choice -->
+      <div class="game__pick">
+
+        <div onclick="play(this)" data-choice="paper" class="chip paper">
+          <div class="chip__inner">
+            <img alt="" src="./images/icon-paper.svg">
+          </div>
+        </div>
+
+        <div onclick="play(this)" data-choice="scissors" class="chip scissors">
+          <div class="chip__inner">
+            <img alt="" src="./images/icon-scissors.svg">
+          </div>
+        </div>
+
+        <div onclick="play(this)" data-choice="rock" class="chip rock">
+          <div class="chip__inner">
+            <img alt="" src="./images/icon-rock.svg">
+          </div>
+        </div>
+        <img alt="" class="img--triangle" src="./images/bg-triangle.svg">
+      </div> 
+
+      <!-- round picking chip/choice -->
+      <div class="game__results">
+
+        <div class="game__results__player">
+          <h4>YOU PICKED</h4>
+          <div class="chip">
+            <div class="chip__inner">
+              <img alt="" src="">
+            </div>
+          </div>
+        </div>
+
+        <div class="game__results__winner">
+          <h2>YOU LOSE</h2>
+          <button onclick="playAgain()">PLAY AGAIN</button>
+        </div>
+
+        <div class="game__results__opponent">
+          <h4>THE HOUSE PICKED</h4>
+          <div class="blankChip">
+            
+          </div>
+        </div>
+
+      </div> 
+
+    </section>
+
+    <!-- rules button -->
+    <div class="rules__button">
+      <button>RULES</button>
+    </div>
+
+    <!-- rules modal -->
+    <div class="modal">
+      <div class="modal__header">
+        <h1>RULES</h1>
+        <img onclick="hide_rules_modal()" class="for__desktop" alt="" src="./images/icon-close.svg">
+      </div>
+      <div class="modal__body">
+        <img alt="" src="./images/image-rules.svg">
+      </div>
+      <img onclick="hide_rules_modal()" class="for__mobile" alt="" src="./images/icon-close.svg">
+    </div>
+
+    <div id="backdrop" class="backdrop"/>
+  </main>
+
+
+  <script src="./static/js/script.js"></script>
+</body>
+</html>

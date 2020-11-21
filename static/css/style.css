@@ -1,0 +1,442 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	background: hsl(214,47%,23%);
+	background: radial-gradient(circle farthest-corner at center center, hsl(214,47%,23%) 0%, hsl(238,48%,15%) 80%);
+	background: -webkit-radial-gradient(circle farthest-corner at center center, hsl(214,47%,23%) 0%, hsl(238,48%,15%) 80%);
+
+}
+.app{
+	width: 100%;
+	max-width: 1366px;
+	height: 100vh;
+	margin: 0 auto;
+	position: relative;
+	padding: 3.5% 2% 2.5%; 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+}
+.board{
+	width: 100%;
+}
+.board__container{
+	padding: 20px 25px;
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+	border: 3px solid hsl(217, 16%, 45%);
+	border-radius: 12px;
+	margin: 0 auto;
+}
+.board__container__logo{
+	align-self: center;
+	height: 90%;
+}
+.board__container__logo img{
+	object-fit: contain;
+}
+.board__container__score{
+	padding: 0 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	border-radius: 8px;
+}
+.board__container__score p{
+	color: hsl(229, 64%, 46%);
+	font-size: calc(.4rem + .5vw);
+	letter-spacing: 1.5px;
+}
+.board__container__score h2{
+	color: hsl(217, 16%, 45%);
+	font-size: calc(3rem + .5vw);
+	letter-spacing: 1.5px;
+	line-height: 1;
+}
+
+.game{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 135px;
+	flex: 1;
+}
+
+
+.game__pick{
+	display: block;
+	position: relative;
+}
+.game__pick--hide{
+	display: none;
+}
+
+.chip{
+	position: absolute;
+	width: 135px;
+	height: 135px;
+	border-radius: 50%;
+	background: coral;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.chip__inner{
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 7px 0px 0px rgba(187,187,187,0.75) inset;
+	-webkit-box-shadow: 0px 7px 0px 0px rgba(187,187,187,0.75) inset;
+	-moz-box-shadow: 0px 7px 0px 0px rgba(187,187,187,0.75) inset;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.scissors{
+	top: 0;
+	right: 0;
+	transform: translate(40%, -50%);
+	background: hsl(39,89%,49%);
+	background: linear-gradient(180deg,hsl(39,89%,49%) 0%, hsl(40,84%,53%) 80%);
+	background: -webkit-linear-gradient(180deg,hsl(39,89%,49%) 0%, hsl(40,84%,53%) 80%);
+	background: -moz-linear-gradient(180deg,hsl(39,89%,49%) 0%, hsl(40,84%,53%) 80%);
+	box-shadow: 0px -10px 0px -3px rgba(169,89,0,.75) inset;
+	-webkit-box-shadow: 0px -10px 0px -3px rgba(169,89,0,.75) inset;
+	-moz-box-shadow: 0px -10px 0px -3px rgba(169,89,0,.75) inset;
+}
+.paper{
+	top: 0;
+	left: 0;
+	transform: translate(-40%, -50%);
+	background: hsl(230,89%,62%);
+	background: linear-gradient(180deg,hsl(230,89%,62%) 0%, hsl(230,89%,65%) 100%);
+	background: -webkit-linear-gradient(180deg,hsl(230,89%,62%) 0%, hsl(230,89%,65%) 100%);
+	background: -moz-linear-gradient(180deg,hsl(230,89%,62%) 0%, hsl(230,89%,65%) 100%);
+	box-shadow: 0px -10px 0px -3px rgba(39,73,243,0.75) inset;
+-webkit-box-shadow: 0px -10px 0px -3px rgba(39,73,243,0.75) inset;
+-moz-box-shadow: 0px -10px 0px -3px rgba(39,73,243,0.75) inset;
+}
+.rock{
+	bottom: -10%;
+	left: 50%;
+	transform: translate(-50%, -10%);
+	background: hsl(349,71%,52%);
+	background: linear-gradient(180deg,hsl(349,71%,52%) 0%, hsl(349,70%,56%) 100%);
+	background: -webkit-linear-gradient(180deg,hsl(349,71%,52%) 0%, hsl(349,70%,56%) 100%);
+	background: -moz-linear-gradient(180deg,hsl(349,71%,52%) 0%, hsl(349,70%,56%) 100%);
+	box-shadow: 0px -10px 0px -3px rgba(153,32,54,0.75) inset;
+-webkit-box-shadow: 0px -10px 0px -3px rgba(153,32,54,0.75) inset;
+-moz-box-shadow: 0px -10px 0px -3px rgba(153,32,54,0.75) inset;
+}
+
+.img--triangle{
+	height: 215px;
+	object-fit: contain;
+}
+.rules__button{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.rules__button button{
+	padding: 8px 24px;
+	border-radius: 8px;
+	border: 2px solid hsl(217, 16%, 45%);
+	background: transparent;
+	color: #fff;
+	outline-width: 0;
+	letter-spacing: 1.5px;
+	font-size: calc(.4rem + .5vw);
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	transition: all .2s ease-in;
+}
+.rules__button button:hover{
+	cursor: pointer;
+	padding: 8px 28px;
+	background: rgb(40,75,120);
+}
+
+.modal{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 25;
+	transform: translate(-50%, 200%);
+	padding: 25px 30px 15px;
+	border-radius: 12px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	transition: all .5s ease-in;
+	box-shadow: 0px 10px 19px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 10px 19px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 10px 19px 3px rgba(0,0,0,0.5);
+}
+.modal__header{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+	color: hsl(229, 25%, 31%);
+}
+.modal__header img{
+	object-fit: contain;
+	cursor: pointer;
+}
+.modal__body img{
+	height: 40vh;
+	object-fit: contain;
+}
+.modal.show{
+	transform: translate(-50%, -50%);
+}
+.game__results{
+	display: none;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	margin-top: -50px;
+}
+.show-results{
+	display: flex;
+}
+.pentagon--design{
+
+}
+.game__results h4{
+	color: white;
+	letter-spacing: 2px;
+	justify-content: flex-start;
+	position: absolute;
+	top: 0;
+	width: 200%;
+	text-align: center;
+}
+.game__results__player, .game__results__winner, .game__results__opponent{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 20px;
+
+
+}
+.game__results__winner{
+	text-align: center;
+	display: none;
+	opacity: 0;
+	transition: all 1s ease-in;
+}
+.game__results__winner h2{
+	color: #fff;
+	font-size: calc(2rem + .5vw);
+}
+.game__results__winner button{
+	padding: 8px 30px;
+	border: 1px solid rgba(0,0,0,.5);
+	background-color: #fff;
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	border-radius: 8px;
+	margin-top: 10px;
+	outline-width: 0;
+	color: hsl(214, 47%, 23%);
+	cursor: pointer;
+}
+.game__results__winner button:hover{
+	color: red;
+}
+.game__results__player > div, .game__results__opponent > div{
+	position: relative;
+	left: 0;
+	bottom: 0;
+	transform: translate(0, 0);
+}
+
+.blankChip{
+	height: 115px;
+	width: 115px;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,.25);
+	margin: 10px;
+}
+.winnerChip::before{
+	wid
+}
+.backdrop{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 20;
+	background-color: rgba(0,0,0,.5);
+	display: none;
+}
+.animate--chip{
+}
+.animate--chip:before{
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 0%;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255, .3);
+	z-index: -10;
+	animation: winner 1.5s linear 1s infinite;
+}
+.animate--chip:after{
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 0%;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255, .3);
+	z-index: -10;
+	animation: winner 1.5s linear .5s infinite;
+}
+.for__desktop{
+	display: block
+}
+.for__mobile{
+	display: none;
+}
+
+@media screen and (max-width: 600px){
+	.for__mobile{
+		display: block;
+	}
+	.for__desktop{
+		display: none;
+	}
+	.app{
+		padding: 7%;
+	}
+	.board__container{
+		width: 100%;
+		padding: 15px 10px 15px 20px;
+	}
+	.board__container img{
+		height: 55px;
+	}
+	.board__container__score{
+		padding: 5px 25px;
+	}
+	.board__container__score p{
+		font-size: calc(.6rem + .5vw);
+	}
+	.game{
+		margin: 0;
+	}
+	.rules__button{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.rules__button button{
+		padding: 8px 28px;
+		letter-spacing: 1.5px;
+		font-size: calc(1rem + .5vw);
+		font-family: 'Barlow Semi Condensed', sans-serif;
+	}
+	.modal{
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		transform:translate(0%, 200%);
+		z-index: 25;
+		border-radius: 0;
+		align-items: center;
+		justify-content: space-around;
+	}
+		.modal__header img{
+		object-fit: contain;
+		cursor: pointer;
+	}
+	.modal.show{
+		transform: translate(0%, 0%);
+	}
+	.game__results{
+		margin-top: -150px;
+		height: auto;
+	}
+	.game__results h4{
+		position: relative;
+		top: 0;
+		margin-top: 20px;
+	}
+	.game__results__player, .game__results__opponent{
+		flex-direction: column-reverse;
+	}
+	.game__results__winner {
+		position: absolute;
+		bottom: -100%;
+	}
+	.game__results__winner h2{
+		color: #fff;
+		font-size: calc(3.5rem + .5vw);
+	}
+	.game__results__winner button{
+		padding: 15px 40px;
+		width: 100%;
+		font-size: calc(1rem + .5vw);
+	}
+}
+
+@keyframes winner{
+	0%{
+		width: 100%;
+		height: 100%;
+		opacity: .8;
+	}
+	20%{
+		width: 120%;
+		height: 120%;
+		opacity: .7;
+	}
+	40%{
+		width: 140%;
+		height: 140%;
+		opacity: .5;
+	}
+	60%{
+		width: 160%;
+		height: 160%;
+		opacity: .4;
+	}
+	80%{
+		width: 180%;
+		height: 180%;
+		opacity: .3;
+	}
+	100%{
+		width: 200%;
+		height: 200%;
+		opacity: .2;
+	}
+}
